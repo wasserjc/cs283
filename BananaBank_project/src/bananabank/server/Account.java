@@ -1,13 +1,11 @@
 package bananabank.server;
 
-import java.util.concurrent.locks.ReentrantLock;
 
 public class Account {
 	
 	private final int accountNumber;
 	private int balance;
 
-	public final ReentrantLock lock = new ReentrantLock();
 	
 	/**
 	 * Creates a new account.

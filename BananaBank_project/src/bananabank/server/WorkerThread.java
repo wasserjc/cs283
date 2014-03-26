@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.StringTokenizer;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class WorkerThread extends Thread {
 
@@ -44,12 +45,25 @@ public class WorkerThread extends Thread {
 					
 					Account srcAccount = bank.getAccount(srcAccountNumber);
 					Account dstAccount = bank.getAccount(dstAccountNumber);
+
+					// make sure we acquire these intrinsic locks in
+					// the same order to avoid deadlocks
+					if (srcAccountNumber > dstAccountNumber) {
+						synchronized(srcAccount) {
+							synchronized(dstAccount) {
+								srcAccount.transferTo(amount, dstAccount);
+							}
+						}
+					}
+					else {
+						synchronized(dstAccount) {
+							synchronized(srcAccount) {
+								srcAccount.transferTo(amount, dstAccount);
+							}
+						}
+					}
+					// now we should exit and unlock the intrinsic locks
 					
-					// need to acquire LOCKs here
-					srcAccount.lock.lock();
-					dstAccount.lock.lock();
-					
-					srcAccount.transferTo(amount, dstAccount);
 					System.out.println(amount + 
 										" transfered from account " +
 										srcAccountNumber +
@@ -60,14 +74,9 @@ public class WorkerThread extends Thread {
 					outgoing.println("Server: Transfer was a success.");
 					outgoing.flush();
 					
-					// need to release LOCKs here
-					srcAccount.lock.unlock();
-					dstAccount.lock.unlock();
 				} catch (NumberFormatException e) {
 					// stop main server thread from accepting client connections
 					serverSocket.close();
-					// save current account info to file
-					bank.save("accounts.txt");
 					// send total amount of money in bank back to client that requested SHUTDOWN
 					PrintWriter outgoing = new PrintWriter(clientSocket.getOutputStream());
 					int sum = 0;

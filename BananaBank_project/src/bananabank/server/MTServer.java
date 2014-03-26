@@ -32,6 +32,8 @@ public class MTServer {
 					worker.join();
 				} catch (InterruptedException e1) {}
 			}
+			// save current account info to file
+			bank.save("accounts.txt");
 			System.out.println("Server closing.");
 		}
 	}
