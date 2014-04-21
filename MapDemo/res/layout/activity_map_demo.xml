@@ -1,0 +1,109 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MapDemoActivity" >
+
+    <TextView
+        android:id="@+id/inning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="16dp"
+        android:textSize="32sp"
+        android:text="INNING:  " />
+
+    <TextView
+        android:id="@+id/home_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/inning"
+        android:layout_below="@+id/inning"
+        android:textSize="32sp"
+        android:text="HOME:  " />
+
+    <TextView
+        android:id="@+id/away_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/home_score"
+        android:layout_below="@+id/home_score"
+        android:textSize="32sp"
+        android:text="AWAY:  " />
+
+    <TextView
+        android:id="@+id/outs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inning"
+        android:layout_alignBottom="@+id/inning"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="84dp"
+		android:textSize="32sp"
+        android:text="OUTS:  " />
+
+    <TextView
+        android:id="@+id/balls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/home_score"
+        android:layout_alignBottom="@+id/home_score"
+        android:layout_alignLeft="@+id/outs"
+        android:textSize="32sp"
+        android:text="BALLS:  " />
+
+    <TextView
+        android:id="@+id/strikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/away_score"
+        android:layout_alignBottom="@+id/away_score"
+        android:layout_alignLeft="@+id/balls"
+        android:textSize="32sp"
+        android:text="STRIKES:  " />
+
+    <CheckBox
+        android:id="@+id/first_base"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="14dp"
+        android:clickable="false"
+        android:text="First" />
+
+    <CheckBox
+        android:id="@+id/second_base"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/first_base"
+        android:layout_centerHorizontal="true"
+        android:clickable="false"
+        android:text="Second" />
+
+    <CheckBox
+        android:id="@+id/third_base"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/first_base"
+        android:layout_alignBottom="@+id/first_base"
+        android:clickable="false"
+        android:text="Third" />
+
+    <Button
+        android:id="@+id/query_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="72dp"
+        android:onClick="onQueryButton"
+        android:text="QUERY" />
+
+</RelativeLayout>

@@ -1,0 +1,80 @@
+
+<HTML> 
+<HEAD> 
+<TITLE>Example</TITLE> 
+</HEAD> 
+<BODY BGCOLOR="WHITE"> 
+
+
+<H2>Input the Game Data Below</H2> 
+
+<FORM METHOD="GET" ACTION="/BaseballScoreKeeperServer/Game"> 
+
+	AWAY TEAM NAME: <INPUT TYPE="TEXT" NAME="AWAYNAME" SIZE=40> <P>
+	RUNS: <INPUT TYPE="TEXT" NAME="AWAYRUNS" SIZE=10> 
+	HITS: <INPUT TYPE="TEXT" NAME="AWAYHITS" SIZE=10> 
+	ERRS: <INPUT TYPE="TEXT" NAME="AWAYERRORS" SIZE=10> 
+	
+	<BR/><BR/><BR/><BR/>
+	
+	HOME TEAM NAME: <INPUT TYPE="TEXT" NAME="HOMENAME" SIZE=40> <P>
+	RUNS: <INPUT TYPE="TEXT" NAME="HOMERUNS" SIZE=10> 
+	HITS: <INPUT TYPE="TEXT" NAME="HOMEHITS" SIZE=10> 
+	ERRS: <INPUT TYPE="TEXT" NAME="HOMEERRORS" SIZE=10> 
+	
+	<BR/><BR/><BR/><BR/>
+	
+	INNING: <INPUT TYPE="TEXT" NAME="INNING" SIZE=10> 
+	
+	<BR/>
+	
+	TOP: <input type="radio" name="HALFINNING" value="TOP"/>
+	BOTTOM: <input type="radio" name="HALFINNING" value="BOTTOM"/>
+
+	<BR/><BR/>
+	
+	BALLS	<input type="radio" name="BALLS" value="0"/>
+			<input type="radio" name="BALLS" value="1"/>
+	 		<input type="radio" name="BALLS" value="2"/>
+	 		<input type="radio" name="BALLS" value="3"/>
+	 		
+	 		<BR/>
+	
+	STRIKES	<input type="radio" name="STRIKES" value="0"/>
+			<input type="radio" name="STRIKES" value="1"/>
+	 		<input type="radio" name="STRIKES" value="2"/>
+	 		
+	 		<BR/>
+	 		
+	OUTS	<input type="radio" name="OUTS" value="0"/>
+			<input type="radio" name="OUTS" value="1"/>
+	 		<input type="radio" name="OUTS" value="2"/>
+	 		
+	 		
+	<BR/><BR/>	
+	
+	
+	MAN ON: <BR/><BR/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+	2nd<BR/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	<input type="checkbox" name="SECOND"/>
+	
+	<BR/>
+	 
+	3rd		<input type="checkbox" name="THIRD" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	 <input type="checkbox" name="FIRST" /> 1st
+	
+	<BR/><BR/>
+	
+	UPDATE 	 <input type="radio" name="type" value="update" checked="checked"/>
+
+	
+	<BR/><BR/>
+	
+	<INPUT TYPE="SUBMIT" VALUE="Submit"> 
+	
+</FORM> 
+
+</BODY> 
+</HTML>
